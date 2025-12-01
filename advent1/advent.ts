@@ -6,10 +6,12 @@ let state: number = 50;
 let zerosLanded: number = 0;
 let zerosPassed: number = 0;
 
+// result of modulo operation with iteration count
 interface ModResult {
     value: number;
     iterations: number;
 }
+
 // get total zeros found
 const zerosFound = () => zerosLanded + zerosPassed;
 
