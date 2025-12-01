@@ -37,4 +37,4 @@ content.split("\n").forEach(line => {
 
 console.log(`Final state: ${state}`);
 console.log(`Zeros landed: ${zerosLanded}`);
-console.log(`Zeros found: ${zerorsFound()} times`);
+console.log(`Zeros found: ${zerorsFound()}`);
