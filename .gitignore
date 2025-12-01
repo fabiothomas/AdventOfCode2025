@@ -1,3 +1,6 @@
+# Generated files
+*.js
+
 # Logs
 logs
 *.log
