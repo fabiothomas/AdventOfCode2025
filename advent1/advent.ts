@@ -5,8 +5,7 @@ const content = fs.readFileSync("advent.txt", "utf-8");
 let state: number = 50;
 let zerosLanded: number = 0;
 let zerosPassed: number = 0;
-let correction: number = 0;
-const zerorsFound = () => zerosLanded + zerosPassed + correction;
+const zerorsFound = () => zerosLanded + zerosPassed;
 
 interface ModResult {
     value: number;
@@ -29,11 +28,9 @@ content.split("\n").forEach(line => {
     let oldState = state;
     state = execute(line, state);
 
-    correction += getCorrection(oldState, state);
-
     let result = modWithTracking(state);
+    zerosPassed += result.iterations + getCorrection(oldState, state);
     state = result.value;
-    zerosPassed += result.iterations;
 
     if (state === 0) zerosLanded += 1;
 });
