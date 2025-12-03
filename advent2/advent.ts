@@ -5,7 +5,9 @@ const content = fs.readFileSync("advent.txt", "utf-8");
 let invalidSum = 0;
 
 // check if id is made of repeated parts
-const checkInValid = (id: string, size: number, part: string): boolean => id.length < size ? true : id.slice(0, size) !== part ? false : checkInValid(id.slice(size), size, part);
+const checkInValid = (id: string, size: number, part: string): boolean =>
+    id.length < size ? true : id.slice(0, size) !== part ? false :
+    checkInValid(id.slice(size), size, part);
 
 content.split(",").forEach(line => {
     const [start, end] = line.split("-").map(x => parseInt(x));
