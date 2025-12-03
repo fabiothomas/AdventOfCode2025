@@ -28,5 +28,5 @@ content.split("\n").forEach(line => {
     totalTwelve += checkBySize(BigInt(line).toString(), 12);
 });
 
-console.log(`Total for  2 digits: ${totalTwo}`);
+console.log(`Total for  2 digits: ${totalTwo}`);p
 console.log(`Total for 12 digits: ${totalTwelve}`);
