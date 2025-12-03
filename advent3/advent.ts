@@ -2,7 +2,8 @@ import * as fs from "fs";
 
 const content = fs.readFileSync("advent.txt", "utf-8");
 
-let total: number = 0;
+let totalTwo: number = 0;
+let totalTwelve: number = 0;
 
 // insert value into array
 const insertTo = (arr: number[], index: number, value: number): number[] => 
@@ -23,7 +24,9 @@ const findLargestNumberBySize = (num: number, rest: string, size: number, result
 const checkBySize = (id: string, size: number) => findLargestNumberBySize(Number(id[0]), id.slice(1), size, []);
 
 content.split("\n").forEach(line => {
-    total += checkBySize(BigInt(line).toString(), 12);
+    totalTwo += checkBySize(BigInt(line).toString(), 2);
+    totalTwelve += checkBySize(BigInt(line).toString(), 12);
 });
 
-console.log(`Total score: ${total}`);
+console.log(`Total for  2 digits: ${totalTwo}`);
+console.log(`Total for 12 digits: ${totalTwelve}`);
