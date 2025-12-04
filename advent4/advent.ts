@@ -2,8 +2,6 @@ import * as fs from "fs";
 
 const content = fs.readFileSync("advent.txt", "utf-8");
 
-const offsets: number[] = [-1, 0, 1];
-
 let totalReachable: number = 0;
 
 // check if specific char in string is '@'
@@ -16,11 +14,11 @@ const removeCharAt = (str: string, index: number): string =>
 
 // check all '@'s around a specific position (minus 1 assuming the center is also '@')
 const checkSurrounding = (previousLine: string, line: string, nextLine: string, pos: number, i = 0, found = 0): number => 
-    i >= offsets.length ? found - 1 :
+    i >= 3 ? found - 1 :
     checkSurrounding(previousLine, line, nextLine, pos, i + 1, found +
-        (checkCharAt(line, pos + offsets[i]) ? 1 : 0 ) +
-        (checkCharAt(previousLine, pos + offsets[i]) ? 1 : 0) +
-        (checkCharAt(nextLine, pos + offsets[i]) ? 1 : 0)
+        (checkCharAt(line, pos + i - 1) ? 1 : 0 ) +
+        (checkCharAt(previousLine, pos + i - 1) ? 1 : 0) +
+        (checkCharAt(nextLine, pos + i - 1) ? 1 : 0)
     );
 
 // scan an entire line
