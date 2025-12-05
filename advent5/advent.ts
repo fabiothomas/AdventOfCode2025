@@ -13,7 +13,7 @@ const range2 = (range: string) => range.split("-").map(Number)[1];
 // for each range check if id falls within it
 const checkInRange = (ranges: string[], id: number, i = 0): boolean => 
     i >= ranges.length ? false :
-    id >= ranges[i].split("-").map(Number)[0] && id <= ranges[i].split("-").map(Number)[1] ? true :
+    id >= range1(ranges[i]) && id <= range2(ranges[i]) ? true :
     checkInRange(ranges, id, i + 1);
 
 // find all ids within the list
