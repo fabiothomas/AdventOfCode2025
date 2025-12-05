@@ -23,8 +23,8 @@ const getForAllIds = (ranges: string[], i = 0, cache: number[] = []): number =>
     getForAllIds(filterRanges(ranges, range1(ranges[i]), range2(ranges[i])), i + 1) + numCountInRange(range1(ranges[i]), range2(ranges[i]), cache);
 
 // get all ids within range without duplicates
-const numCountInRange = (id: number, until: number, cache: number[]): number => 
-    id > until ? 0 : until - id + 1;
+const numCountInRange = (low: number, high: number, cache: number[]): number => 
+    low > high ? 0 : high - low + 1;
 
 // check if range is subset of another range
 const isSubset = (ranges: string[], range: string): boolean =>
