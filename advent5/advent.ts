@@ -20,10 +20,10 @@ const checkInRange = (ranges: string[], id: number, i = 0): boolean =>
 const getForAllIds = (ranges: string[], i = 0, cache: number[] = []): number =>
     i >= ranges.length ? 0 :
     isSubset(ranges.slice(i+1, ranges.length), ranges[i]) ? getForAllIds(ranges, i + 1, cache) :
-    getForAllIds(filterRanges(ranges, range1(ranges[i]), range2(ranges[i])), i + 1) + numCountInRange(range1(ranges[i]), range2(ranges[i]), cache);
+    getForAllIds(filterRanges(ranges, range1(ranges[i]), range2(ranges[i])), i + 1) + numCountInRange(range1(ranges[i]), range2(ranges[i]));
 
 // get all ids within range without duplicates
-const numCountInRange = (low: number, high: number, cache: number[]): number => 
+const numCountInRange = (low: number, high: number): number => 
     low > high ? 0 : high - low + 1;
 
 // check if range is subset of another range
